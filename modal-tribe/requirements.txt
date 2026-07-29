@@ -1,0 +1,5 @@
+# Local client / Modal SDK
+modal>=0.63.0
+
+# TRIBE v2 itself is installed inside the Modal image from its GitHub repo.
+# Do NOT install it in your local environment unless you are running Python 3.11+.

@@ -1,0 +1,44 @@
+# Secrets / environment
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+
+# Model / cache artifacts
+.cache/
+*.ckpt
+*.pth
+*.safetensors
+*.bin
+
+# Generated media
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.wav
+*.mp3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
