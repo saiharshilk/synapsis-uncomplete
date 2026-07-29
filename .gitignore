@@ -48,3 +48,7 @@ frontend/dist/
 .idea/
 *.swp
 *.swo
+
+# Next.js / pnpm auto-generated in frontend
+frontend/next-env.d.ts
+frontend/pnpm-workspace.yaml
