@@ -116,7 +116,7 @@ The frontend is a standard Next.js app using pnpm.
 
 ```bash
 cd frontend
-pnpm install
+pnpm install   # npm install -g pnpm if you don't have pnpm
 pnpm dev
 ```
 
