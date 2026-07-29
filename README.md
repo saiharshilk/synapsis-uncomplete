@@ -116,7 +116,9 @@ The frontend is a standard Next.js app using pnpm.
 
 ```bash
 cd frontend
-pnpm install   # npm install -g pnpm if you don't have pnpm
+# pnpm may prompt you to approve native builds for sharp/msw.
+# For the mock UI you can skip them with --ignore-scripts.
+pnpm install --ignore-scripts
 pnpm dev
 ```
 
