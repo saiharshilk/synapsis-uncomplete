@@ -1,0 +1,93 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@theme inline {
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 4px;
+}
+
+:root {
+  color-scheme: light;
+  /* Off-white lab background */
+  --background: #fafaf8;
+  --foreground: #141412;
+  --card: #ffffff;
+  --card-foreground: #141412;
+  --popover: #ffffff;
+  --popover-foreground: #141412;
+  /* Deep amber accent — active/winning state only */
+  --primary: #c9700a;
+  --primary-foreground: #fafaf8;
+  --secondary: #f0efeb;
+  --secondary-foreground: #141412;
+  --muted: #f0efeb;
+  --muted-foreground: #6f6d66;
+  --accent: #c9700a;
+  --accent-foreground: #fafaf8;
+  --destructive: #b3261e;
+  --border: #e3e2dc;
+  --input: #e3e2dc;
+  --ring: #c9700a;
+  /* Chart lines: neutrals + one amber composite */
+  --chart-1: #141412;
+  --chart-2: #6f6d66;
+  --chart-3: #9c9a91;
+  --chart-4: #bcbab0;
+  --chart-5: #c9700a;
+  --radius: 4px;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Idle waveform animation for the hero signal */
+@keyframes signal-dash {
+  to {
+    stroke-dashoffset: -400;
+  }
+}
+
+@keyframes signal-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
