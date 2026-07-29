@@ -6,7 +6,8 @@ This guide gets you from a fresh clone to a running frontend and (optionally) a 
 
 - **Git** — to clone the repo
 - **Node.js 18+** and **pnpm** — for the frontend
-- **Python 3.9+** — for local Modal scripts
+- **Python 3.9+** — for local Modal client scripts
+- **ffmpeg** — only needed for the GPU smoke test (it generates a sample video)
 - **Modal account** — only needed for the GPU backend
 - **Hugging Face account + read token** — only needed for the GPU backend
 - **Payment method on Modal** — only needed for the A100 GPU backend (Modal requires it for A100 access)
@@ -41,7 +42,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To build for production:
+To build for production (good sanity check that the static export works):
 
 ```bash
 pnpm build
@@ -68,7 +69,15 @@ cd modal-tribe
 pip install -r requirements.txt
 ```
 
-### 3.2 Authenticate with Modal
+### 3.2 Accept the gated LLaMA license on Hugging Face
+
+Before running TRIBE v2, accept the license for the gated text encoder:
+
+https://huggingface.co/meta-llama/Llama-3.2-3B
+
+You need a Hugging Face account with access to this model before `TribeModel.from_pretrained` can download it.
+
+### 3.3 Authenticate with Modal
 
 ```bash
 modal setup
@@ -76,7 +85,7 @@ modal setup
 
 This opens a browser to link your Modal account.
 
-### 3.3 Create the Hugging Face token secret
+### 3.4 Create the Hugging Face token secret
 
 Do NOT paste your real token into any repo file. Run this with your actual read token:
 
@@ -86,7 +95,7 @@ modal secret create huggingface-secret HF_TOKEN=hf_YourActualReadToken
 
 Make sure your Hugging Face account has accepted the license for `meta-llama/Llama-3.2-3B`.
 
-### 3.4 Run the smoke test
+### 3.5 Run the smoke test
 
 ```bash
 python test_tribe.py
@@ -143,6 +152,7 @@ If you delete your local folder and re-clone, you will need to recreate these lo
 
 - `.env` — any secrets/tokens
 - `frontend/node_modules/` and `frontend/.next/` — reinstall with `pnpm install`
+- `frontend/next-env.d.ts` and `frontend/pnpm-workspace.yaml` — auto-generated during builds, already ignored
 - `modal-tribe/venv/` — recreate with `python -m venv venv`
 - Any generated sample videos (e.g., `modal-tribe/sample.mp4`)
 - Modal/Hugging Face caches (model weights, feature caches)
