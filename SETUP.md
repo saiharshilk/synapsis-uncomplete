@@ -6,7 +6,7 @@ This guide gets you from a fresh clone to a running frontend and (optionally) a 
 
 - **Git** — to clone the repo
 - **Node.js 18+** and **pnpm** — for the frontend
-- **Python 3.9+** — for local Modal client scripts
+- **Python 3.9+** — for the local Modal *client* scripts (the Modal container itself uses Python 3.11 because TRIBE v2 requires `>=3.11`)
 - **ffmpeg** — only needed for the GPU smoke test (it generates a sample video)
 - **Modal account** — only needed for the GPU backend
 - **Hugging Face account + read token** — only needed for the GPU backend
@@ -69,13 +69,13 @@ cd modal-tribe
 pip install -r requirements.txt
 ```
 
-### 3.2 Accept the gated LLaMA license on Hugging Face
+### 3.2 Request access and accept the gated LLaMA license on Hugging Face
 
-Before running TRIBE v2, accept the license for the gated text encoder:
+Before running TRIBE v2, you must *request access to* and *accept the license for* the gated text encoder:
 
 https://huggingface.co/meta-llama/Llama-3.2-3B
 
-You need a Hugging Face account with access to this model before `TribeModel.from_pretrained` can download it.
+Approval is usually automatic but may take a few minutes. Once approved, generate a Hugging Face read token so `TribeModel.from_pretrained` can download the model.
 
 ### 3.3 Authenticate with Modal
 
