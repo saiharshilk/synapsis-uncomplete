@@ -7,7 +7,7 @@ const nextConfig = {
     unoptimized: true,
   },
   turbopack: {
-    root: process.cwd(),
+    root: new URL('.', import.meta.url).pathname,
   },
 }
 
